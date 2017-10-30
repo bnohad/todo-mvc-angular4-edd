@@ -1,0 +1,15 @@
+<footer class="footer">
+  <span class="todo-count"><strong>{{counter}}</strong> items left</span>
+  <ul class="filters">
+    <li (click)="changeCounterMode('all')">
+      <a [ngClass]="{'selected': mode === 'all'}" href="#/">All</a>
+    </li>
+    <li (click)="changeCounterMode('active')">
+      <a [ngClass]="{'selected': mode === 'active'}" href="#/active">Active</a>
+    </li>
+    <li (click)="changeCounterMode('done')">
+      <a href="#/completed" [ngClass]="{'selected': mode === 'done'}">Completed</a>
+    </li>
+  </ul>
+  <button class="clear-completed" (click)="clearAllCompleted.emit(null)">Clear completed</button>
+</footer>

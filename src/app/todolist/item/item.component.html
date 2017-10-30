@@ -1,0 +1,12 @@
+<li [ngClass]="{'completed': item.done, 'editing': isEditing}">
+  <div class="view">
+    <input class="toggle" type="checkbox"
+           (change)="toggleState.emit(null)" [checked]="item.done" />
+    <label (click)="toggleEditMode(true)">{{item.label}}</label>
+    <button class="destroy" (click)="removeItem.emit(null)"></button>
+  </div>
+  <input class="edit"
+         [ngModel]="item.label"
+         (keyup.enter)="changeItemLabel(input.value)"
+          #input />
+</li>

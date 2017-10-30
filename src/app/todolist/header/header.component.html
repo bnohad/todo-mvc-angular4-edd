@@ -1,0 +1,7 @@
+<header class="header">
+  <h1>todos</h1>
+  <form (submit)="emitNewItem($event)">
+
+    <input name="newItemLabel" class="new-todo" placeholder="What needs to be done?" autofocus [(ngModel)]="newItemLabel"/>
+  </form>
+</header>

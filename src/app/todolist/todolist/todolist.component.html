@@ -1,0 +1,17 @@
+<section class="todoapp">
+  <app-header (newItem)="state.addItem($event)"></app-header>
+  <app-main>
+    <app-list (toggleAllItems)="state.toggleAllItems()"
+              [toggleAllState]="state.toggleAllState()">
+      <app-item *ngFor="let item of state.getItems()"
+                [item]="item"
+                (toggleState)="state.updateItemState(item, !item.done)"
+                (labelChange)="state.updateItemLabel(item, $event)"
+                (removeItem)="state.removeItem(item)"></app-item>
+    </app-list>
+  </app-main>
+  <app-footer [counter]="state.getCounter()"
+              [mode]="state.getCountMode()"
+              (countMode)="state.changeCountMode($event)"
+              (clearAllCompleted)="state.clearCompleted()"></app-footer>
+</section>
